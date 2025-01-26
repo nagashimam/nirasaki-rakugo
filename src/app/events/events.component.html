@@ -1,0 +1,7 @@
+<h1>イベント一覧</h1>
+<a routerLink="/past-events" ariaCurrentWhenActive="page"
+  >これまでに開催したイベント</a
+>
+@for (event of events; track event.id) {
+  <h2>{{ event.eventName }}</h2>
+}
