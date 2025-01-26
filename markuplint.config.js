@@ -10,7 +10,11 @@ module.exports = {
 						"invalid-attr": {
 							options: {
 								ignoreAttrNamePrefix: ["app", "ng"],
-								allowAttrs: ["formgroup"],
+								allowAttrs: [
+									"formgroup",
+									"routerLink",
+									"ariaCurrentWhenActive",
+								],
 							},
 						},
 					},

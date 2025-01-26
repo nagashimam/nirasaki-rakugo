@@ -16,7 +16,7 @@ export const members = MEMBERS.map((member) => {
 	};
 });
 
-export const events = EVENTS.map((event) => {
+const plainEvents = EVENTS.map((event) => {
 	const relatedPerformances = PERFORMANCES.filter(
 		(performance) => performance.eventId === event.id,
 	);
@@ -25,14 +25,29 @@ export const events = EVENTS.map((event) => {
 	);
 	return {
 		...event,
+		date: new Date(event.date),
 		performers,
 	};
 }).sort((a, b) => {
 	if (a.date === b.date) {
 		return a.startAt > b.startAt ? 1 : -1;
 	}
-	return a.date > b.date ? 1 : -1;
+	return a.date.getTime() > b.date.getTime() ? 1 : -1;
 });
 
-export type Event = (typeof events)[0];
+export type Event = (typeof plainEvents)[0];
 export type Member = (typeof members)[0];
+
+const upcommingEventIndex = (() => {
+	const yesterday = new Date();
+	yesterday.setDate(yesterday.getDate() - 1);
+	for (let i = 0; i < plainEvents.length; i++) {
+		if (yesterday.getTime() > plainEvents[i].date.getTime()) {
+			return i + 1;
+		}
+	}
+	return -1;
+})();
+
+export const pastEvents: Event[] = plainEvents.slice(0, upcommingEventIndex);
+export const events: Event[] = plainEvents.slice(upcommingEventIndex);

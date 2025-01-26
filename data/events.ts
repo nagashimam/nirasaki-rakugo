@@ -2,7 +2,7 @@ export const EVENTS = [
 	{
 		id: "1",
 		eventName: "2024落語ワークショップ発表会",
-		date: "2025年3月10日(日)",
+		date: "2025/3/10",
 		openAt: "12:30",
 		startAt: "13:00",
 		endAt: "15:00",
@@ -15,7 +15,7 @@ export const EVENTS = [
 	{
 		id: "2",
 		eventName: "穴山公民館落語会",
-		date: "2024年12月15日(日)",
+		date: "2024/12/15",
 		openAt: "",
 		startAt: "10:30",
 		endAt: "11:30",
@@ -28,7 +28,7 @@ export const EVENTS = [
 	{
 		id: "3",
 		eventName: "大草町若尾公民館",
-		date: "2025年3月2日(日)",
+		date: "2025/3/2",
 		openAt: "",
 		startAt: "10:30",
 		endAt: "11:30",
